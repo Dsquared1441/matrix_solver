@@ -3,7 +3,7 @@ print("mat.py imported.")
 class Matrix():
     
     '''
-        rows -- a list of rows for the matrix
+        rows -- a list of rows for the matrix, where each row is a list
     '''
     def __init__(self, rows):
         self.matrix = rows;
