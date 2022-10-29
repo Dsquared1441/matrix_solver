@@ -3,8 +3,7 @@
 	
 	Additional improvement to make (DONE):
 	- solving matrix gives really wierd float numbers -- like 4e-28 when it is supposed to be 0 and 1.000000000000000000000 for 1
-		- make element type in matrix Decimal
-		- should I convert back to int/float?
+		- used floating point precision of 1e-6 to solve round-off errors when adding numbers
 '''
 
 from matrix import Matrix
