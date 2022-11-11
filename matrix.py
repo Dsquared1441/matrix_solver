@@ -5,10 +5,11 @@ class Matrix():
     '''
         rows -- a list of rows for the matrix, where each row is a list
     '''
-    def __init__(self, rows):
+    def __init__(self, rows, precision=1e-6):
         self.matrix = rows;
         self.size = [len(rows), len(rows[0])];
         self.row_len = len(rows[0])
+        self.precision = precision
     
     # checks if row n is all zeroes    
     def isZeroRow(self, n):
@@ -34,9 +35,8 @@ class Matrix():
         row1 = self.matrix[r1];
         row2 = self.matrix[r2];
         for i in range(0, self.row_len):
-            row2[i] = row2[i] + row1[i];
-            if (row2[i] < 1e-6):
-                row2[i] = 0;
+            s = row2[i] + row1[i];
+            row2[i] = s if (abs(s) > self.precision) else 0
         self.matrix[r2] = row2;
 
     # creates a copy of the matrix
@@ -60,3 +60,4 @@ class Matrix():
         for i in self.matrix:
             s += str(i) + '\n';
         return s
+
